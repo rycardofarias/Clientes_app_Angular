@@ -10128,6 +10128,9 @@ body {
   font-weight: bold;
   text-transform: uppercase;
 }
+.sb-sidenav-menu-heading-expand {
+  padding: 0rem 0rem 7.75rem;
+}
 .sb-sidenav .sb-sidenav-menu .nav .nav-link {
   display: flex;
   align-items: center;
