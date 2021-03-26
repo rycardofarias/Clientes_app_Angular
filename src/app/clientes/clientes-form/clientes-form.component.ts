@@ -10,15 +10,15 @@ import { from } from 'rxjs';
 export class ClientesFormComponent implements OnInit {
 
   cliente?: Cliente;
-  constructor() { 
+  constructor() {
     this.cliente = new Cliente();
     this.cliente.nome = 'Ricardo';
   }
 
   ngOnInit(): void {
   }
-  clicar(){
-    console.log("Cliquei")
+  clicar() {
+    console.log(this.cliente)
   }
 
 }
