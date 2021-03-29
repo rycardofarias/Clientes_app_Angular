@@ -24,10 +24,12 @@ export class ClientesFormComponent implements OnInit {
           .salvar(this.cliente)
           .subscribe( response =>{
             this.success = true;
-            console.log(response);
+            this.erros = null;
+            this.cliente = response;
             
           },
           errorResponse =>{
+            this.success = false;
             this.erros = errorResponse.error.erros
           })
                 

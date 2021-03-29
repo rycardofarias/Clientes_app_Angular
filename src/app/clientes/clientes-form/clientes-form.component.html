@@ -13,20 +13,23 @@
                     {{ erro }}
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label>ID:</label>
-                    <input type="text" class="form-control" disabled="true" [(ngModel)]="cliente.id" name="id" />
+        </div>
+        <div class="row" *ngIf = "cliente.id">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>ID:</label>
+                        <input type="text" class="form-control" disabled="true" [(ngModel)]="cliente.id" name="id" />
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label>Data Cadastro:</label>
-                    <input type="text" class="form-control" disabled="true" [(ngModel)]="cliente.dataCadastro"
-                        name="dataCadastro" />
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Data Cadastro:</label>
+                        <input type="text" class="form-control" disabled="true" [(ngModel)]="cliente.dataCadastro"
+                            name="dataCadastro" />
+                    </div>
                 </div>
-            </div>
+            
         </div>
         <div class="row">
             <div class="col-md-6">
