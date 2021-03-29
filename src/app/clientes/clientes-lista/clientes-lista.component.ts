@@ -16,6 +16,7 @@ export class ClientesListaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.clientes = this.service.getClientes();
   }
 
 }

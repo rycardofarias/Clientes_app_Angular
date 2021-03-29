@@ -23,6 +23,14 @@
                         <th></th>
                     </tr>
                 </thead>
+                <tbody>
+                    <tr *ngFor="let cliente of clientes">
+                        <td>{{ cliente.id }}</td>
+                        <td>{{ cliente.nome }}</td>
+                        <td>{{ cliente.cpf }}</td>
+                        <td>{{ cliente.dataCadastro }}</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>
