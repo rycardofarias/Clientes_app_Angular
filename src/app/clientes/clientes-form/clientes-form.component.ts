@@ -32,8 +32,8 @@ export class ClientesFormComponent implements OnInit {
         this.service
         .getClientesById(this.id)
         .subscribe(
-          //response => this.cliente=response,
-          //errorResponse => this.cliente = new Cliente()
+          response => this.cliente=response,
+          errorResponse => this.cliente = new Cliente()
         )
       }
     })     
