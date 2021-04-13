@@ -32,12 +32,14 @@ export class ClientesListaComponent implements OnInit {
 
   preparaDelecao(cliente: Cliente){
     this.clienteSelecionado = cliente;
+    console.log(cliente)
   }
   deletarCliente(){
     this.service
       .deletar(this.clienteSelecionado)
       .subscribe(
         response => {
+          console.log(this.clienteSelecionado)
           this.mensagemSucesso = 'Cliente deletado com sucesso!'
           this.ngOnInit();
         },
