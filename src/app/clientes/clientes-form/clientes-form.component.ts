@@ -51,11 +51,11 @@ export class ClientesFormComponent implements OnInit {
       this.service
         .atualizar(this.cliente)
         .subscribe( response =>{
-          this.erros = ['Erro ao atualizar o cliente']
+          this.success = true;
+          this.erros = null;
         },
           errorResponse =>{
-            this.success = false;
-            this.erros = errorResponse.error.erros
+            this.erros = ['Erro ao atualizar o cliente']
           })
 
     }else{
