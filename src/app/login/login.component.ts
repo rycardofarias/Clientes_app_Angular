@@ -12,12 +12,13 @@ export class LoginComponent implements OnInit {
   loginError: boolean;
   cadastrando: boolean;
   
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
   onSubmit(){
     console.log(`User: ${this.username}, Password: ${this.password}`)
+    this.router.navigate(['/home'])
   }
   preparaCadastrar(event: any){
     event.preventDefault();
