@@ -1,3 +1,4 @@
+import { AuthService } from './auth.service';
 import { FormsModule } from '@angular/forms';
 import { ServicoPrestadoModule } from './servico-prestado/servico-prestado.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -31,11 +32,13 @@ import { LayoutComponent } from './layout/layout.component';
     ClientesModule,
     HttpClientModule,
     ServicoPrestadoModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     ClientesService,
-    ServicoPrestadoService
+    ServicoPrestadoService,
+    AuthService
+
   ],
   bootstrap: [AppComponent]
 })
