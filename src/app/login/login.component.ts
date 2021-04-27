@@ -25,8 +25,14 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(){
-    console.log(`User: ${this.username}, Password: ${this.password}`)
-    this.router.navigate(['/home'])
+    this.authService
+      .tentarLogar(this.username, this.password)
+      .subscribe(response => {
+        console.log(response)
+        this.router.navigate(['/home'])
+      }, erroResponse => {
+        this.erros =['Usuário e/ou senha incorreta(s).']
+      })
   }
   preparaCadastrar(event: any){
     event.preventDefault();
@@ -43,6 +49,10 @@ export class LoginComponent implements OnInit {
           .salvar(usuario)
           .subscribe( response => {
             this.mensagemSucesso = "Cadastro realizado com sucesso! Efetue o Login"
+            this.cadastrando = false;
+            this.username=''
+            this.password=''
+            this.erros=[]
           },errorResponse => {
             this.mensagemSucesso=null;
             this.erros = errorResponse.error.erros;
