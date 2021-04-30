@@ -21,15 +21,17 @@ export class AuthService {
      return this.http.post<any>(this.apiUrlBase, usuario);
    }
 
-   tentarLogar( username: string, password: string) : Observable<any> {
-     const params = new HttpParams()
-                          .set('username', username)
-                          .set('password', password)
-                          .set('grant_type', 'password')
-      const headers = {
-        'Autorization' : 'Basic '+ btoa(`${this.clienteId}:${this.clienteSecret}`),
-        'Content-Type' : 'application/x-www-form-urlencoded'
-      }
-      return this.http.post( this.tokenURL, params.toString(), {headers})
-   }
+   tentarLogar( username: string, password: string ) : Observable<any> {
+    const params = new HttpParams()
+                        .set('username', username)
+                        .set('password', password)
+                        .set('grant_type', 'password')
+
+    const headers = {
+      'Authorization': 'Basic ' + btoa(`${this.clienteId}:${this.clienteSecret}`),
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
+    
+    return this.http.post( this.tokenURL, params.toString(), { headers });
+  }
 }
