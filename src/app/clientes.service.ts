@@ -15,7 +15,12 @@ export class ClientesService {
   constructor(private http:HttpClient) { }
 
   salvar (cliente: Cliente): Observable<Cliente>{
-    return this.http.post<Cliente>(`${this.apiUrlBase}`, cliente);
+    const tokenString = localStorage.getItem('access_token')
+    const token = JSON.parse(tokenString)
+    const headers = {
+      'Authorization' : 'Bearer '+ token.access_token
+    }
+    return this.http.post<Cliente>(`${this.apiUrlBase}`, cliente , { headers });
   }
 
   atualizar (cliente: Cliente): Observable<Cliente>{
@@ -23,7 +28,12 @@ export class ClientesService {
   }
 
   getClientes() : Observable<Cliente[]>{
-    return this.http.get<Cliente[]>(this.apiUrlBase);
+    const tokenString = localStorage.getItem('access_token')
+    const token = JSON.parse(tokenString)
+    const headers = {
+      'Authorization' : 'Bearer '+ token.access_token
+    }
+    return this.http.get<Cliente[]>(this.apiUrlBase, { headers });
   }
   getClientesById(id: number) : Observable<Cliente>{
     return this.http.get<Cliente>(`${this.apiUrlBase}/${id}`);
